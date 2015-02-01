@@ -22,7 +22,16 @@ class EmailLogMain
 				@toList << line.slice(/[<]*[>]/)
 			end
 		end
+		@toList.each do |i|
+			puts i
+		end
 		return 
+	end
+	
+	def getFromAdress
+		@fromList = Array.new
+		
+		
 	end
 	
 	def getToList
