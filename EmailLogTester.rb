@@ -6,6 +6,7 @@ class EmailLogTester < Test::Unit::TestCase
 	def tests
 		log = EmailLogMain.new
 		assert_equal(61, log.load)		# Checking for correct number of messages
+<<<<<<< HEAD
 		log.getAddress
 		
 		
@@ -24,5 +25,8 @@ class EmailLogTester < Test::Unit::TestCase
 		end
 		
 		
+=======
+>>>>>>> 3a0d9032bc0297f331bdcdd4e668d26a3768aa65
 	end
 end
+
