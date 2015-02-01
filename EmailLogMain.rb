@@ -3,7 +3,6 @@ class EmailLogMain
 	def load
 		@logList = Array.new
 		
-		ct = 0
 		File.open("mail.log.txt").each do |i|
 			if i =~ /size=[0-9]*?,/ 
 				@logList << i
@@ -11,6 +10,12 @@ class EmailLogMain
 		end
 		@logList.size
 	end
+	
+	def getID(logListIndex)
+		id = @loglist[logListIndex].slice((/: [0-9|A-Z]/)+2..(/[0-9|A-Z]: /))
+		return id
+	end
+	
 	
 	def getAddress
 		@toList = Array.new
@@ -34,5 +39,3 @@ class EmailLogMain
 	
 end
 
-log = EmailLogMain.new
-log.beast
