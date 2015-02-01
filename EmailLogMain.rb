@@ -19,10 +19,9 @@ class EmailLogMain
 		
 		@logList.each do |line|
 			if line =~ /[<]*[>]/
-				@toList << line.slice(/[<]*[>]/)
+				@toList << line.slice(line.index("<")+1..line.index(">")-1)
 			end
 		end
-		return 
 	end
 	
 	def getToList
