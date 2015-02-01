@@ -9,7 +9,7 @@ class EmailLogTester < Test::Unit::TestCase
 		log.getAddress
 		assert_equal(69, log.getToList.size)	# Checking for correct number of recipients
 		log.getToList.each do |i|
-			assert_equal(i.include? "@")	# Checking each recipient for valid address
+			assert_equal(true, (i.include? "@"))	# Checking each recipient for valid address
 		end
 		
 		log.getDateList.each do |i|
