@@ -14,11 +14,13 @@ class EmailLogTester < Test::Unit::TestCase
 		
 		log.getDateList.each do |i|
 			assert_equal(15, i.length)
+			
 		end
 		
 		log.getIDList.each do |i|
 			assert_equal(11, i.length)
 		end
+		
 		
 	end
 end
