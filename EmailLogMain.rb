@@ -5,13 +5,11 @@ class EmailLogMain
 		
 		ct = 0
 		File.open("mail.log.txt").each do |i|
-			if i =~ /: to=</ 
+			if i =~ /size=[0-9]*?,/ 
 				@logList << i
-			elsif i =~ /removed/
-				ct+=1
 			end
 		end
-		ct
+		@logList.size
 	end
 	
 	def getAddress
@@ -28,20 +26,6 @@ class EmailLogMain
 		return @toList
 	end
 	
-	def beast
-		@stringList = Array.new
-		str = ""
-		File.open("mail.log.txt").each do |i|
-			str = ""
-			if(i =~ /: to=</)
-				str += i[0..15] + " "
-				str += i[(i=~/: [0-9|A-Z]/)+2..(i=~/[0-9|A-Z]: /)]
-				#@stringList << str
-				puts str
-			end
-		end
-		#puts @stringList.size
-	end
 end
 
 log = EmailLogMain.new
