@@ -20,6 +20,8 @@ class EmailLogTester < Test::Unit::TestCase
 		end
 		# Checking for correct number of to addresses
 		assert_equal(69, ct)
+		
+		log.print
 	end
 end
 

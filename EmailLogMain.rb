@@ -41,5 +41,21 @@ class EmailLogMain
 		return @table
 	end
 	
+	def print
+		@logList.each do |i|
+			str = "";
+			str += "DATE: " + i[0..6]
+			str += "\nTIME: " + i[(i=~/[0-9]*:[0-9]*:[0-9]* /)..(i=~/toilers/)-2]
+			str += "\nSIZE: " + i[(i=~/size=/)+5..(i=~/, nrcpt/)-1]
+			str += "\nID: " + getID(i)
+			str += "\nFROM: " + i[(i=~/from=</)+6..(i=~/>, s/)-1]
+			str += "\nTO: "
+			@table[getID(i)].each do |j|
+				str += j+", "
+			end
+			puts "\n"+str[0..-3]
+		end
+	end
+	
 end
 
