@@ -54,11 +54,11 @@ class EmailLogMain
 			#fetch Month and Day
 			str += "DATE: " + i[0..6]
 			#fetch time sent
-			str += "\nTIME: " + i[(i=~/[0-9]*:[0-9]*:[0-9]* /)..(i=~/toilers/)-2]
+			str += "  TIME: " + i[(i=~/[0-9]*:[0-9]*:[0-9]* /)..(i=~/toilers/)-2]
 			#fetch size of message
-			str += "\nSIZE: " + i[(i=~/size=/)+5..(i=~/, nrcpt/)-1]
+			str += "  SIZE: " + i[(i=~/size=/)+5..(i=~/, nrcpt/)-1]
 			#fetch ID
-			str += "\nID: " + getID(i)
+			str += "  ID: " + getID(i)
 			#fetch Sender
 			str += "\nFROM: " + i[(i=~/from=</)+6..(i=~/>, s/)-1]
 			#fetch recipient(s)
@@ -69,6 +69,7 @@ class EmailLogMain
 			#print formatted log data
 			puts "\n"+str[0..-3]
 		end
+		puts "\nTOTAL MESSAGES SENT: #{load}"
 	end
 	
 end
